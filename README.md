@@ -106,8 +106,8 @@ This project is open-source. Feel free to modify and adapt it to suit your resea
 For further information or questions, feel free to contact:
 
 - **Team Name**: [NOBODY]
-- **Email**: [ariseonceagain@gmail.comm]
-- **GitHub**: [Your GitHub Profile or Repository Link]
+- **Email**: [ariseonceagain@gmail.com]
+- **GitHub**: (https://github.com/onceagainarise/Seismic_detection_across_solar_system)]
 
 ---
 
