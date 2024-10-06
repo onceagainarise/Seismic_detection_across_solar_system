@@ -107,7 +107,7 @@ for csv_file in csv_files:
 final_results = pd.concat(all_results, ignore_index=True)
 
 # Save the results to a CSV file
-output_file_path = '/content/detected_event.csv'  # Output file path
+output_file_path = 'write_the_path_of_the_file_where_you_want_to_store_the_sesmic_data.csv'  # Output file path
 final_results.to_csv(output_file_path, index=False)  # Save results
 
 # Print confirmation message
