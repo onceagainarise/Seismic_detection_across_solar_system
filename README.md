@@ -107,7 +107,7 @@ For further information or questions, feel free to contact:
 
 - **Team Name**: [NOBODY]
 - **Email**: [ariseonceagain@gmail.com]
-- **GitHub**: (https://github.com/onceagainarise/Seismic_detection_across_solar_system)]
+- **GitHub**: [https://github.com/onceagainarise/Seismic_detection_across_solar_system]
 
 ---
 
