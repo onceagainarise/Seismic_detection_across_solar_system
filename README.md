@@ -80,12 +80,6 @@ python seismic_event_detection.py
   - Total Energy of the event.
   - The source file name.
 
-### Example Output (Sample CSV):
-```
-Absolute Time,Relative Time (sec),Peak Velocity (m/s),Event Duration (sec),Total Energy,File
-2024-10-05 12:34:56.789,123.45,0.067,10.2,0.12345,seismic_data_1.csv
-2024-10-05 12:45:02.654,234.56,0.045,5.7,0.08934,seismic_data_1.csv
-```
 
 ## Advanced Features
 1. **Dynamic Threshold Calculation**: Instead of a static threshold, the program calculates a dynamic threshold using the mean and standard deviation of the STA/LTA ratio, allowing it to adapt to the signal's characteristics.
