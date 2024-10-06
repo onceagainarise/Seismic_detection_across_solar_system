@@ -44,22 +44,28 @@ all_results = []  # To store results from all files
 for csv_file in csv_files:
     file_path = os.path.join(data_dir, csv_file)
     
-    # Read the CSV file, specify dtype to avoid mixed types and low_memory warning
-    df = pd.read_csv(file_path, dtype={'velocity(m/s)': 'float64'}, low_memory=False)
+    # Read the CSV file with 'velocity(m/s)' as string to avoid conversion issues
+    df = pd.read_csv(file_path, dtype={'velocity(m/s)': str}, low_memory=False)
     df = df.dropna()
     df['time_abs'] = pd.to_datetime(df['time_abs(%Y-%m-%dT%H:%M:%S.%f)'])
     
-    # Convert velocity column to numeric and drop rows with NaN values
+    # Convert the velocity column to numeric, invalid values become NaN
     df['velocity(m/s)'] = pd.to_numeric(df['velocity(m/s)'], errors='coerce')
-    df = df.dropna(subset=['velocity(m/s)'])  # Drop rows where velocity is NaN
-
+    
+    # Drop rows with NaN in velocity column
+    df = df.dropna(subset=['velocity(m/s)'])
+    
+    if df.empty:
+        print(f"No valid velocity data in {csv_file}, skipping this file.")
+        continue  # Skip to the next file if no valid data remains
+    
     velocity = df['velocity(m/s)'].values
     sta_lta_ratio = compute_sta_lta(velocity, n_sta, n_lta)
     
     # Dynamically compute threshold based on data characteristics
     mean_sta_lta = np.mean(sta_lta_ratio)
     std_sta_lta = np.std(sta_lta_ratio)
-    k = 3  # Adjust this multiplier to change sensitivity
+    k = 5  # Adjust this multiplier to change sensitivity
     threshold = mean_sta_lta + k * std_sta_lta
     print(f"Threshold for {csv_file}: {threshold}")
     
