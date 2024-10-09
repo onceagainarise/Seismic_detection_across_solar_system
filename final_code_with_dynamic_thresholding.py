@@ -1,3 +1,6 @@
+#this code is for lunar dataset as for the mars dataset we have to alter the sampling_rate,sta_window,lta_window and the value of 'k' for the threshold due to variance in the data.
+
+
 import pandas as pd
 import numpy as np
 import os
